@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Embedded systems</h1>
+    
+    <p>Current commands</p>
+    {% for line in lines %}
+        <li>
+            {{ line }}
+        </li>
+    {% endfor %}
+    <br>
+    <p>You can enter new binary command</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+        {{ form.as_table }}
+        </table>
+        <br>
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock %}
